@@ -1,3 +1,4 @@
+from web import start_web_server
 
 import os
 import re
@@ -39,7 +40,6 @@ MAX_TOOL_ROUNDS = 6
 MAX_HISTORY_MESSAGES = 30
 
 groq = AsyncGroq(api_key=GROQ_API_KEY)
-
 
 # ============================================================
 # DISCORD SETUP
@@ -1244,4 +1244,6 @@ async def on_ready():
 # START BOT
 # ============================================================
 
-bot.run(DISCORD_TOKEN)
+if __name__ == "__main__":
+    start_web_server(bot)
+    bot.run(DISCORD_TOKEN)
